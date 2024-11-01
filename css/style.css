@@ -31,7 +31,38 @@ b{
     font-family: 'PoppinsMedium', 'Rubik', sans-serif;
 }
 .nav-link{
-    color: var(--colorblack);
+    color: var(--colorblack)!important;
     padding-left: 35px!important;
     padding-right: 35px!important;
+}
+
+.btn-white{
+    background-color: var(--colorwhite);
+    color: var(--colorblack)!important;
+    border-radius: 20px;
+    padding: 15px 25px;
+    font-size: 18px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0);
+}
+.paragrafo{
+    margin-top: 10px;
+    margin-bottom: 1rem;
+}
+.btn-icon{
+    padding-right: 75px;
+}
+
+/*estilizadno o botão de carrinho, a sacola*/
+.btn-icon .icon{
+    display: inline-block;
+    color: var(--colorblack);
+    background-color: var(--colorprimaria);
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    right: 10px;
+    margin-top: -8px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 6px;
 }
