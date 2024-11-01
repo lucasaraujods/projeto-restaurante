@@ -4,11 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardapio Online</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Utilizando o estilo de css com o bootstrap e os arquivos do fontawasome-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
-    <header>
-        
+    <header class="cabecalho">
+        <div class="container">
+            <nav class="navbar navbar-expend-lg pl-0 pr-0"> <!-- Craindo um navbar/menu expansivo, com classes pre-definidas-->
+                <a href="#" class="navbar-brand">
+                    <img src="imgs/logo.png" alt="imagem da logo" width="160px" class="img-logo">
+                </a>
+                <!--criando o botão para reponsividade adiante-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+                    <span class="navbar-toggler-icon">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </button>
+                <!--Colocando essa div para quando abrir o botão fazer ref ao meu id para aparecer a lista dos menus: ul-->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <!--defininfo margem left: ml auto para centralizar conforme a página e margim da direita mr automatico também-->
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        <li class="nav-item">
+                             <!--definindo o link com id da sessao de cada link e ao clicar no item deve eguir na sessão de reservas-->
+                            <a href="#reservas" class="nav-link">Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#servicos" class="nav-link">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#cardapio" class="nav-link">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#depoimentos" class="nav-link">depoimentos</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -16,26 +51,32 @@
 
         </section>
 
-        <section class="servicos">
+        <section class="servicos" id="servicos">
             
         </section>
 
-        <section class="cardapio">
+        <section class="cardapio" id="cardapio">
             
         </section>
 
-        <section class="depoimentos">
+        <section class="depoimentos" id="depoimentos">
             
         </section>
 
-        <section class="reserva">
+        <section class="reserva" id="reservas"> 
             
         </section>
 
     </main>
 
     <footer>
-        <p>Site Criado Por lucas</p>
+        
     </footer>
+
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/modernizr-3.5.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
 </body>
 </html>
