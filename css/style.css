@@ -1,4 +1,13 @@
+/*importantando as fontes do projeto*/
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url('../fonts/Poppins-Medium.otf');
+}
 
+@font-face {
+    font-family: 'PoppinsRegular';
+    src: url('../fonts/Poppins-Regular.otf');
+}
 /*criando váriaveis para cores*/
 :root{
     --colorbackground: #fffdf7;
@@ -11,6 +20,15 @@
     --colorred: #e74c3c;
     --colorgreen: #2ecc71;
     --colorseparada: #cccccc;
+}
+body{
+    font-family: 'PoppinsRegular', 'Rubik', sans-serif;
+    background-color: var(--colorbackground);
+    color: var(--colortext);
+}
+/* para todas tags em negrito fiz uma classe*/
+b{
+    font-family: 'PoppinsMedium', 'Rubik', sans-serif;
 }
 .nav-link{
     color: var(--colorblack);
