@@ -1,0 +1,19 @@
+
+/*criando váriaveis para cores*/
+:root{
+    --colorbackground: #fffdf7;
+    --colorblack: #212121;
+    --colortext: #4f4f4f;
+    --colortextout: #90908e;
+    --colorprimaria:#ffbf00;
+    --colorsecudaria: #fff2cc;
+    --colorwhite: #ffffff;
+    --colorred: #e74c3c;
+    --colorgreen: #2ecc71;
+    --colorseparada: #cccccc;
+}
+.nav-link{
+    color: var(--colorblack);
+    padding-left: 35px!important;
+    padding-right: 35px!important;
+}
