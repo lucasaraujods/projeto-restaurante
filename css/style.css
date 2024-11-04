@@ -33,6 +33,10 @@ b{
 .destaque{
     color: var(--colorprimaria);
 }
+/*alinhando a logo*/
+a.navbar-brand{
+    margin-left: -25px;
+}
 .nav-link{
     color: var(--colorblack)!important;
     padding-left: 35px!important;
@@ -75,10 +79,47 @@ b{
     padding-bottom: 200px;
 }
 
-/*estilizndo a div de text-banner bootstrap deixando horizontal, em colunas*/
+/*estilizndo a div text-banner bootstrap deixando horizontal, em colunas*/
 .text-banner{
     /*usando a direção em colunas, horizontal e alinhando o texto ao centro*/
     flex-direction: column;
     justify-content: center;
     margin-bottom: 60px;
+}
+
+.text-banner h1{
+    color: var(--colorblack);
+    font-size: 60px;
+}
+.text-banner p{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.btn-yellow{
+    background-color: var(--colorprimaria);
+    color: var(--colorwhite);
+    border-radius: 20px;
+    padding: 15px 25px;
+    font-size: 20px;
+    box-shadow: 0px 10px 15px -3px ;
+}
+.btn-icon-left{
+    padding-left: 70px;
+
+}
+
+/*estilizando o icone de telefone*/
+.btn-icon-left span.icon-left{
+    display: inline-block;
+    color: var(--colorred);
+    background-color: var(--colorprimaria);
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    margin-left: -60px;
+    margin-top: -8px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 8px;
 }
