@@ -344,3 +344,57 @@ a.navbar-brand{
     background-position: center;
     margin-right: 15px;
 }
+
+/*usando a id de depoimentos para diferenciar as pessoas por id e ajustando com o cover  a img de cada um (foto)*/
+#depoimento-1 .imagem-depoimento{
+    background-image: url(../imgs/diego.jpg);
+    background-size: cover;
+}
+
+#depoimento-2 .imagem-depoimento{
+    background-image: url(../imgs/ana.jpg);
+    background-size: cover;
+}
+
+#depoimento-3 .imagem-depoimento{
+    background-image: url(../imgs/joao.jpg);
+    background-size: cover;
+}
+
+.nome-depoimento{
+    color: black;
+    font-size: 22px;
+    margin-bottom: 5px;
+
+}
+
+.nota-depoiment{
+    color: var(--colorprimaria);
+}
+
+.nota-depoimento .span{
+    color: black;
+}
+
+.texto-depoimento{
+    display: flex;
+    font-size: 16px;
+    color: black;
+}
+
+/*estilizando as aspas (?) com as cores padrões*/
+.texto-depoimento i{
+    font-size: 35px;
+    color: var(--colorprimaria);
+}
+
+.texto-depoimento i:first-child{
+    padding-left: 10px;
+    padding-right: 35px;
+}
+.texto-depoimento i:last-child{
+    padding-left: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
