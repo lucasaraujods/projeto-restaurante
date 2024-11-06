@@ -30,6 +30,9 @@ body{
 b{
     font-family: 'PoppinsMedium', 'Rubik', sans-serif;
 }
+.hidden{
+    display: none!important;
+}
 .destaque{
     color: var(--colorprimaria);
 }
@@ -334,7 +337,13 @@ a.navbar-brand{
 .depoimento{
     margin-top: 70px;
 }
-
+.background-depoimentos{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 500px;
+    background-image: url(../imgs/bg-icons-1.png);
+}
 .imagem-depoimento{
     height: 65px;
     width: 65px;
@@ -397,4 +406,28 @@ a.navbar-brand{
     display: flex;
     justify-content: center;
     align-items: end;
+}
+.reserva{
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.card-secundary{
+    background-color: var(--colorsecudaria);
+    border-radius: 70px;
+    padding: 90px;
+}
+
+.card-reserva{
+    height: 320px;
+    width: 320px;
+    border-radius: 120px;
+    background-color: var(--colorwhite);
+    position: absolute;
+    right: 0;
+    top: -25px;
+}
+
+.reserva .img-banner img{
+    width: 100%;
 }
