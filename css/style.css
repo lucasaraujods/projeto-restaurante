@@ -480,6 +480,20 @@ footer{
     overflow: auto;
     overflow-x: hidden;
 }
+/*removaneod barra de rolagem*/
+.m-body::-webkit-scrollbar{
+    width: 6px;
+    color: transparent;
+}   
+
+.m.body::-webkit-scrollbar-thumb{
+    background: var(--colorwhite);
+}
+
+.m-body::-webkit-scrollbar-track{
+    background: transparent;
+}
+
 .etapas{
     display: flex;
 }
@@ -497,7 +511,7 @@ footer{
 }
 
 .etapa::before{
-    content: "";
+    content: '';
     width: 20px;
     background-color: var(--colorseparada);
     position: absolute;
@@ -505,7 +519,7 @@ footer{
     margin-left: 55px;
 }
 
-.etapa:last-child:before{
+.etapa:last-child::before{
     content: none;
 }
 .etapa.active, .etapa.active::before{
@@ -516,3 +530,77 @@ footer{
     font-size: 20px;
     color: black;
 }
+
+.modal-full .item-carrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--colorseparada);
+}
+
+.modal-full .item-carrinho:last-child{
+    border-bottom: none;
+}
+
+.modal-full .img-produto img{
+    width: 100px;
+    border-radius: 11px;
+}
+
+.modal-full .title-produto{
+    color: black;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.modal-full .price-produto{
+    color: var(--colorprimaria);
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.modal-full .dados-produto{
+    flex: 1;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.modal-full .add-carrinho{
+    display: flex;
+    text-align: center;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.btn-remove{
+    border: 2px solid red;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: var(--colorwhite);
+    background-color: var(--colorred);
+    margin-left: 15px;
+}
+
+.container-total{
+    padding-top: 20px;
+    border-top: 1px solid var(--colorseparada);
+}
+.container-total .texto-entrega{
+    color: var(--colorseparada);
+}
+.container-total .texto-total{
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.container-total .valor-total{
+    color: var(--colorprimaria);
+    font-size: 24px;
+}
+
