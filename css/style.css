@@ -356,17 +356,17 @@ a.navbar-brand{
 
 /*usando a id de depoimentos para diferenciar as pessoas por id e ajustando com o cover  a img de cada um (foto)*/
 #depoimento-1 .imagem-depoimento{
-    background-image: url(../imgs/diego.jpg);
+    background-image: url(../img/diego.jpg);
     background-size: cover;
 }
 
 #depoimento-2 .imagem-depoimento{
-    background-image: url(../imgs/ana.jpg);
+    background-image: url(../img/ana.jpg);
     background-size: cover;
 }
 
 #depoimento-3 .imagem-depoimento{
-    background-image: url(../imgs/joao.jpg);
+    background-image: url(../img/joao.jpg);
     background-size: cover;
 }
 
