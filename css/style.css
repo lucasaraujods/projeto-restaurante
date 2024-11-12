@@ -209,7 +209,9 @@ a.navbar-brand{
     height: 500px;
     background-image: url(../imgs/bg-icons-2.png);
 }
-
+.active{
+    background-color: var(--colorprimaria);
+}
 .cardapio{
     padding-top: 50px;
     padding-bottom: 150px;

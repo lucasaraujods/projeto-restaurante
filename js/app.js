@@ -17,10 +17,13 @@ cardapio.eventos = {
 
 cardapio.metodos = {
     //para listar os itens, obtendo a lista de itens do cardapio 
-    obterItensCardapio: () => {
+    obterItensCardapio: (categoria = 'burgers') => {
 
-        let filtro = MENU['burgers']
+        let filtro = MENU[categoria]
         console.log(filtro)
+
+        //limpando a tela para depois dar o append
+        $("#itensCardapio").html('')
 
         //*criando um for each em jquery para obter os 12 produtos e cada vez que e a repetição ele cria um template
         //o e é o elemento assim segue os 12 itens do cardápio do array
@@ -30,11 +33,17 @@ cardapio.metodos = {
             //usando o replace para substituir a variavel, pelo meu item atual sendo a variavel global de img, usand regex
             let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
             .replace(/\${name}/g, e.name)
-            .replace(/\${preco}/g, e.price)
+            .replace(/\${preco}/g, e.price.toFixed(2).replace('.',','))
             //assim usamos o id para jogar para página e adicionameos o temp
             $("#itensCardapio").append(temp)
 
         })
+
+        //removendo o ativo para o click, ou seja, a parte amarelha deve ser removida o active
+        $(".container-menu a").removeClass('active')
+
+        // coloca o menu para ativo
+        $('#menu-' + categoria).addClass('active')
     }
 }
 
