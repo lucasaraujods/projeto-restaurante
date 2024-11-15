@@ -125,8 +125,60 @@ cardapio.metodos = {
                     MEU_CARRINHO.push(item[0])
                 }
 
+                //chamando a função para retornar a mensagem de algo foi colocado no carrinho
+                cardapio.metodos.mensagem('item adicionado ao carrinho', 'green')
+                //ao adicionar, o número 0 retorna para o inicial
+                $("#qntd-" + id).text(0)
+
+                //chamando a função para adicionar ao carrinho
+                cardapio.metodos.atuaizarBagdeTotal()
+
             }
         }
+    },
+
+    //atualiza o iconezinho flutuante quanyo o meu carrinho lá de cima
+    atuaizarBagdeTotal: () => {
+
+        var total= 0
+
+        $.each(MEU_CARRINHO, (i,e) => {
+            total +=e.qntd
+        })
+
+        if(total > 0){
+            $(".botao-carrinho").removeClass('hidden')
+            $(".container-total-carrinho").removeClass('hidden')
+        }
+        else{
+            $(".botao-carrinho").addClass('hidden')
+            $(".container-total-carrinho").addClass('hidden')
+        }
+
+        $(".badge-total-carrinho").html(total)
+
+    },
+
+    
+
+    // o tempo é em milisegundos, por isso 3500, mensgens de adicionar ao carrinho
+    mensagem: (texto, cor = 'red', tempo= 3500) => {
+
+        //essa função faz com que pegue um número aletorio e multiplico pela data atual em milisegundos, então sempre os ids são diferentes
+        let id= Math.floor(Date.now() * Math.random()).toString()
+        //template de mensgaem
+        let msg = `<div id="msg-${id}" class="animated fadeInDown toast ${cor}">${texto}</div>`
+
+        $("#container-mensagens").append(msg)
+
+        //set time out espera um tempo para executar uma função dentro dele, com animação
+        setTimeout(() => {
+            $("#msg-" + id).removeClass('fadeInDown ')
+            $("#msg-" + id).addClass('fadeOutUp')
+            setTimeout(() => {
+                $("#msg-" + id).remove()
+            }, 800)
+        }, tempo)
     },
 }
 
@@ -145,7 +197,7 @@ cardapio.templates = {
                 </p>
 
                 <p class="price-produto text-center">
-                    <b>R$ \${preco}</b>
+                    <b>R$\${preco}</b>
                 </p>
 
                 <!--testenado botões de mais e menos para adicionar o produto no carrinho-->

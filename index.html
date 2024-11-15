@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
     
 </head>
 <body>
+
+    <div class="container-mensagens" id="container-mensagens">
+
+    </div>
+
+    <a class="botao-carrinho hidden">
+        <div class="badge-total-carrinho ">0</div>
+        <i class="fa fa-shopping-bag"></i>
+    </a>
+
     <header class="cabecalho">
         <div class="container">
             <nav class="navbar navbar-expand-lg pl-0 pr-0"> <!-- Craindo um navbar/menu expansivo, com classes pre-definidas-->
@@ -44,7 +55,12 @@
                     <!--criando um botão com base nas classes do bootstrap informando que será terá a classe btn e terá um icone dentro deste botão-->
                     <a class="btn btn-white btn-icon">
                         <!--criando um icone fa-shopping-bag assim é a sacolinha ao lado de meu carrinho-->
-                        <p class="paragrafo">Meu carrinho <span class="icon"> <i class="fa fa-shopping-bag"></i></span></p>
+                        Meu carrinho 
+                            <span class="icon"> 
+                                <div class=" container-total-carrinho badge-total-carrinho hidden">8</div>
+                                <i class="fa fa-shopping-bag"></i>
+                            </span>
+                        
                     </a>
                 </div>
             </nav>
