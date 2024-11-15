@@ -17,7 +17,7 @@
 
     </div>
 
-    <a class="botao-carrinho hidden">
+    <a class="botao-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
         <div class="badge-total-carrinho ">0</div>
         <i class="fa fa-shopping-bag"></i>
     </a>
@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                     <!--criando um botão com base nas classes do bootstrap informando que será terá a classe btn e terá um icone dentro deste botão-->
-                    <a class="btn btn-white btn-icon">
+                    <a class="btn btn-white btn-icon" onclick="cardapio.metodos.abrirCarrinho(true)">
                         <!--criando um icone fa-shopping-bag assim é a sacolinha ao lado de meu carrinho-->
                         Meu carrinho 
                             <span class="icon"> 
@@ -415,7 +415,7 @@
 
         <div class="m-header">
             <div class="container">
-                <a href="" class="btn btn-white brn-sm float-right">
+                <a href="" class="btn btn-white brn-sm float-right" onclick="cardapio.metodos.abrirCarrinho(false)" >
                     Fechar
                 </a>
                 <div class="etapas">
@@ -435,7 +435,7 @@
 
                     <div class="col-12 item-carrinho">
                         <div class="img-produto">
-                            <img src="imgs/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="hamburguer">
+                            <img src="img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="hamburguer">
                         </div>
                         <div class="dados-produto">
                             <p class="title-produto"><b>Nome do produto</b></p>
@@ -538,7 +538,7 @@
 
                 </div>
 
-                <div id="resumoCarrinho" class="row mr-0 ml-0 " >
+                <div id="resumoCarrinho" class="row mr-0 ml-0 hidden" >
                     <div class="col-12">
                         <p class="title-carrinho mt-4">
                             <b>Itens do pedido:</b>
@@ -550,7 +550,7 @@
 
                             <div class="col-12 item-carrinho resumo">
                                 <div class="img-produto-resumo">
-                                    <img src="imgs/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="">
+                                    <img src="img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="">
                                 </div>
 
                                 <div class="dados-produto">
@@ -610,19 +610,19 @@
                     </p>
                 </div>
 
-                <a href="" class="btn btn-yellow float-right" id="btnEtapaPedido">
+                <a onclick="cardapio.metodos.carregarEtapa(2)" class="btn btn-yellow float-right" id="btnEtapaPedido">
                     Continuar
                 </a>
 
-                <a href="" class="btn btn-yellow float-right hidden" id="btnEtapaEndereco">
+                <a onclick= "cardapio.metodos.carregarEtapa(3)" class="btn btn-yellow float-right hidden" id="btnEtapaEndereco">
                     Revisar pedido
                 </a>
 
-                <a href="" class="btn btn-yellow float-right hidden" id="btnEtapaResumo">
+                <a  class="btn btn-yellow float-right hidden" id="btnEtapaResumo">
                     Enviar pedido
                 </a>
 
-                <a href="" class="btn btn-white float-right mr-3 hidden" id="btnVoltar">
+                <a onclick="cardapio.metodos.voltarEtapa()" class="btn btn-white float-right mr-3 hidden" id="btnVoltar">
                     Voltar
                 </a>
 
