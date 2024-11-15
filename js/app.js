@@ -9,6 +9,9 @@ var cardapio = {}
 
 var MEU_CARRINHO = []
 
+var VALOR_CARRINHO=0
+var VALOR_ENTREGA=5
+
 cardapio.eventos = {
     //criando uma função para quando inicializar e chamar os itens do menu
     init: () => {
@@ -131,14 +134,14 @@ cardapio.metodos = {
                 $("#qntd-" + id).text(0)
 
                 //chamando a função para adicionar ao carrinho
-                cardapio.metodos.atuaizarBagdeTotal()
+                cardapio.metodos.atualizarBagdeTotal()
 
             }
         }
     },
 
     //atualiza o iconezinho flutuante quanyo o meu carrinho lá de cima
-    atuaizarBagdeTotal: () => {
+    atualizarBagdeTotal: () => {
 
         var total= 0
 
@@ -164,7 +167,7 @@ cardapio.metodos = {
 
         if(abrir){
             $("#modalCarrinho").removeClass('hidden')
-            cardapio.metodos.carregarEtapa(1)
+            cardapio.metodos.carregarCarrinho()
         }
         else{
             $("#modalCarrinho").addClass('hidden')
@@ -231,6 +234,131 @@ cardapio.metodos = {
         cardapio.metodos.carregarEtapa(etapa-1)
     },
 
+    //carrega as listas de itens do carrinho
+    carregarCarrinho: () => {
+
+        cardapio.metodos.carregarEtapa(1)
+        
+        if(MEU_CARRINHO.length> 0){
+
+            //limpando a pagina
+            $("#itensCarrinho").html('')
+
+            $.each(MEU_CARRINHO, (i,e) => {
+
+                let temp = cardapio.templates.itemCarrinho.replace(/\${img}/g, e.img)
+                .replace(/\${name}/g, e.name)
+                .replace(/\${preco}/g, e.price.toFixed(2).replace('.',','))
+                .replace(/\${id}/g, e.id)
+                .replace(/\${qntd}/g, e.qntd)
+
+                $("#itensCarrinho").append(temp)
+
+                //ultimo item do carrinho:
+                if((i+1) == MEU_CARRINHO.length){
+
+                    cardapio.metodos.carregarValores()
+                }
+                
+
+            })
+
+        }else{
+            $("#itensCarrinho").html('<p class="carrinho-vazio"> <i class= "fa fa-shopping-bag"></i> Seu carrinho está vazio </p>')
+            cardapio.metodos.carregarValores()
+        }
+
+
+    },
+
+    diminuirQuantidadeCarrinho: (id) =>{
+
+        let qntdAtual =parseInt($("#qntd-carrinho-" + id).text()) 
+
+        if(qntdAtual > 1){
+
+            $("#qntd-carrinho-" + id).text(qntdAtual-1)
+            cardapio.metodos.atualizarCarrinho(id, qntdAtual-1)
+
+        }
+        else{
+            cardapio.metodos.removerItemCarrinho(id)
+        }
+
+    },
+
+    aumentarQuantidadeCarrinho: (id) => {
+
+        let qntdAtual =parseInt($("#qntd-carrinho-" + id).text()) 
+        $("#qntd-carrinho-" + id).text(qntdAtual+1)
+        cardapio.metodos.atualizarCarrinho(id, qntdAtual+1)
+    },
+    //botão remover item do carrinho
+    removerItemCarrinho: (id) => {
+
+        //retorna a lista com ids diferentes
+        MEU_CARRINHO = $.grep(MEU_CARRINHO, (e,i) => {return e.id != id} )
+        cardapio.metodos.carregarCarrinho()
+
+        //atualiza o icone pequeno do botao carrinho , com a quantidade atualizada
+        cardapio.metodos.atualizarBagdeTotal()
+    }, 
+
+    //atualiza o carrinho com a quantidade atual
+    atualizarCarrinho: (id,qntd) =>{
+
+        let objIndex = MEU_CARRINHO.findIndex((obj => obj.id == id))
+        MEU_CARRINHO[objIndex].qntd = qntd
+
+        //atualiza o icone pequeno do botao carrinho , com a quantidade atualizada
+        cardapio.metodos.atualizarBagdeTotal()
+
+        //ATUALIZA OS VALORES em reais totais do carrinho 
+        cardapio.metodos.carregarValores()
+    },
+
+    //carrega os valores de subtotal, entrega e total
+    carregarValores: () => {
+
+        VALOR_CARRINHO = 0
+
+        $("#lblSubTotal").text('R$ 0,00')
+        $("#lblValorEntrega").text(' + R$ 0,00')
+        $("#lblValorTotal").text('R$ 0,00')
+
+        $.each(MEU_CARRINHO, (i,e) => {
+
+            VALOR_CARRINHO += parseFloat(e.price * e.qntd)
+
+            if((i+1) == MEU_CARRINHO.length){
+
+                $("#lblSubTotal").text(`R$ ${VALOR_CARRINHO.toFixed(2).replace('.', ',')}`)
+                $("#lblValorEntrega").text(`+ R$ ${VALOR_ENTREGA.toFixed(2).replace('.', ',')}`)
+                $("#lblValorTotal").text(`R$ ${(VALOR_CARRINHO + VALOR_ENTREGA).toFixed(2).replace('.', ',')}`)
+            }
+        })
+
+    },
+
+    //carregar a etapa enderecos
+    carregarEndereco: () =>{
+
+        if(MEU_CARRINHO.length <= 0){
+            cardapio.metodos.mensagem("Seu carrinho está vazio")
+            return
+        }
+
+        cardapio.metodos.carregarEtapa(2)
+
+    }, 
+
+    //chama api viacep 
+    buscarCEP: () => {
+        //aqui o trin limpa o espaoço tanto no começo, tanto no final
+        var cep = $("#txtCEP").val().trin()
+    },
+
+
     // o tempo é em milisegundos, por isso 3500, mensgens de adicionar ao carrinho
     mensagem: (texto, cor = 'red', tempo= 3500) => {
 
@@ -278,5 +406,21 @@ cardapio.templates = {
                     <span class="btn btn-add" onClick="cardapio.metodos.adicionarAoCarrinho('\${id}')"><i class="fas fa-shopping-bag"></i></span>
                 </div>
             </div>
-        </div>`
+        </div>`,
+itemCarrinho:
+                `<div class="col-12 item-carrinho">
+                    <div class="img-produto">
+                        <img src="\${img}" alt="hamburguer">
+                    </div>
+                    <div class="dados-produto">
+                        <p class="title-produto"><b>\${name}</b></p>
+                        <p class="price-produto"><b>\${preco}</b></p>
+                    </div>
+                    <div class="add-carrinho">
+                        <span class="btn-menos" onclick="cardapio.metodos.diminuirQuantidadeCarrinho('\${id}')"><i class="fas fa-minus"></i></span>
+                        <span class="add-numero-itens" id="qntd-carrinho-\${id}">\${qntd}</span>
+                        <span class="btn-mais" onClick="cardapio.metodos.aumentarQuantidadeCarrinho('\${id}')"><i class="fas fa-plus"></i></span>
+                        <span class="btn btn-remove" onClick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fas fa-times"></i></span>
+                    </div>
+                </div>`,
 }
