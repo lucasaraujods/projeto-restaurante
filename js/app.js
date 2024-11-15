@@ -5,7 +5,9 @@ $(document).ready(function () {
 })
 
 //criando um váriavel sendo orinetado ao objeto, para ficar mais fácil de se situar
-var cardapio = {};
+var cardapio = {}
+
+var MEU_CARRINHO = []
 
 cardapio.eventos = {
     //criando uma função para quando inicializar e chamar os itens do menu
@@ -87,6 +89,45 @@ cardapio.metodos = {
 
         $("#qntd-" + id).text(qntdAtual+1)
     },
+
+    //adicionar ao carrinho o item do cardapio
+    adicionarAoCarrinho: (id) => {
+
+        let qntdAtual =parseInt($("#qntd-" + id).text())
+
+        if(qntdAtual>0){
+
+            //obter a cateoria ativa
+            var categoria = $(".container-menu a.active").attr('id').split('menu-')[1]
+
+            // obtem a lista de itens
+            let filtro = MENU[categoria]
+
+            // obte item 
+            let item = $.grep(filtro, (e,i) => {return e.id == id})
+
+            if(item.length > 0){
+
+                //VALIDAR se já existe esse item no carrinho, so retorna se o elemento for igual ao id do item, assim filtrando para se caso adicionar mais um item, ele fazer a soma do que já estão selecionados e adicionados
+                let existe= $.grep(MEU_CARRINHO, (elem, index) => {return elem.id == id})
+
+                //pegamso a posição do item e altera a qntd dele, se ele existir, assim, usando o método de encontrar o index do item para adicionar a quantidade dada no memsmo item, assim retorna a posição no carrinho
+                if(existe.length > 0){
+
+                    let objIndex = MEU_CARRINHO.findIndex((obj => obj.id == id))
+                    //acesso ao meu carrinho, passando a posição do elemento acima e quantidade, assim vai ser igual a quantidade que já existe mais a quantidade atual escolhida pela usuario 
+                    MEU_CARRINHO[objIndex].qntd = MEU_CARRINHO[objIndex].qntd + qntdAtual
+
+                }
+                //se nao existir o item no carrinho, adiiciona ele
+                else{
+                    item[0].qntd = qntdAtual
+                    MEU_CARRINHO.push(item[0])
+                }
+
+            }
+        }
+    },
 }
 
 cardapio.templates = {
@@ -112,7 +153,7 @@ cardapio.templates = {
                     <span class="btn-menos" onclick="cardapio.metodos.diminuirQuantidade('\${id}')"><i class="fas fa-minus"></i></span>
                     <span class="add-numero-itens" id="qntd-\${id}">0</span>
                     <span class="btn-mais" onClick="cardapio.metodos.aumentarQuantidade('\${id}')"><i class="fas fa-plus"></i></span>
-                    <span class="btn btn-add"><i class="fas fa-shopping-bag"></i></span>
+                    <span class="btn btn-add" onClick="cardapio.metodos.adicionarAoCarrinho('\${id}')"><i class="fas fa-shopping-bag"></i></span>
                 </div>
             </div>
         </div>`
