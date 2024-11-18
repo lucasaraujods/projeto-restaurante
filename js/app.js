@@ -8,14 +8,19 @@ $(document).ready(function () {
 var cardapio = {}
 
 var MEU_CARRINHO = []
+var MEU_ENDERECO= null
 
 var VALOR_CARRINHO=0
 var VALOR_ENTREGA=5
+
+var CELULAR_EMPRESA = '5561986183824'
 
 cardapio.eventos = {
     //criando uma função para quando inicializar e chamar os itens do menu
     init: () => {
         cardapio.metodos.obterItensCardapio()
+        cardapio.metodos.carregarBotaoLigar()
+        cardapio.metodos.carregarBotaoReserva()
     }
 
 }
@@ -354,10 +359,200 @@ cardapio.metodos = {
 
     //chama api viacep 
     buscarCEP: () => {
-        //aqui o trin limpa o espaoço tanto no começo, tanto no final
-        var cep = $("#txtCEP").val().trin()
+        //aqui o trin limpa o espaoço tanto no começo, tanto no final e usando um replace que deixa somente números, ou seja, tirando os pontos
+        var cep = $("#txtCEP").val().trim().replace(/\D/g, '')
+
+        //validando oo cep, ou seja , se o cep for diferente de vazio, ou seja, se possui o valor informado
+        if(cep != ""){
+
+            //usando um regexp para validar o cep, assim somente 8digitos entre de 0 a 9, é um expressão regular para validar o nosso cep
+            var validacep = /^[0-9]{8}$/
+            //um teste do regexp, se cair dentro do if = true senão, o cep não existe, ou seja, não válido
+            if(validacep.test(cep)){
+                //chamar a API do viacep retornando um JSON e o callback me retorna que ele vai receber uma função pos receber os dados 
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados){
+
+                    //fazendo a validação do cep, se encentrar erro ou não
+                    if(!("erro" in dados)){
+
+                        // atualizar os campos com os valores retornados
+                        $("#txtEndereco").val(dados.logradouro)
+                        $("#txtBairro").val(dados.bairro)
+                        $("#txtCidade").val(dados.localidade)
+                        $("#ddlUf").val(dados.uf)
+                        $("#txtNumero").focus()
+
+
+                    }
+                    else{
+                        cardapio.metodos.mensagem('CEP não encontrado')
+                        $("#txtEndereco").focus()
+                    }
+
+                })
+
+            }else{
+                cardapio.metodos.mensagem("CEP ínvalido")
+                //usando o focus, para focar o cursor que há um erro  no input do cep
+                $("#txtCEP").focus()
+            }
+
+        }else{
+            cardapio.metodos.mensagem("Informe o CEP, por favor")
+            $("#txtCEP").focus()
+        }
     },
 
+    //validação antes de prosseguir para a etapa 3
+    resumoPedido: () => {
+
+        let cep =  $("#txtCEP").val().trim()
+        let endereco =  $("#txtEndereco").val().trim()
+        let bairro =  $("#txtBairro").val().trim()
+        let cidade =  $("#txtCidade").val().trim()
+        let uf =  $("#ddlUf").val().trim()
+        let numero =  $("#txtNumero").val().trim()
+        let complemento =  $("#txtComplemento").val().trim()
+
+        if(cep.length <= 0){
+            cardapio.metodos.mensagem("informe o CEP")
+            $("#txtCEP").focus()
+            return
+        }
+        if(endereco.length <= 0){
+            cardapio.metodos.mensagem("informe o Endereço")
+            $("#txtEndereco").focus()
+            return
+        }
+        if(bairro.length <= 0){
+            cardapio.metodos.mensagem("informe o bairro")
+            $("#txtBairro").focus()
+            return
+        }
+        if(cidade.length <= 0){
+            cardapio.metodos.mensagem("informe a cidade")
+            $("#txtCidade").focus()
+            return
+        }
+        if(uf == -1){
+            cardapio.metodos.mensagem("informe a UF")
+            $("#ddlUf").focus()
+            return
+        }
+        if(numero.length <= 0){
+            cardapio.metodos.mensagem("informe o número")
+            $("#txtNumero").focus()
+            return
+        }
+
+        //se torna um objeto
+        MEU_ENDERECO = {
+            cep: cep,
+            endereco: endereco,
+            bairro: bairro, 
+            cidade: cidade,
+            uf: uf,
+            numero: numero,
+            complemento: complemento, 
+        }
+
+        cardapio.metodos.carregarEtapa(3)
+        cardapio.metodos.carregarResumo()
+
+    },
+
+    //carrega a etapa de resumo do pedido
+    carregarResumo: () => {
+
+        //limpar o html
+        $("#listaItensResumo").html('')
+
+        $.each(MEU_CARRINHO, (i,e) => {
+
+            let temp = cardapio.templates.itemResumo.replace(/\${img}/g, e.img)
+                .replace(/\${name}/g, e.name)
+                .replace(/\${preco}/g, e.price.toFixed(2).replace('.',','))
+                .replace(/\${qntd}/g, e.qntd)
+
+            $("#listaItensResumo").append(temp)
+        })
+
+        $("#resumoEndereco").html(`${MEU_ENDERECO.endereco}, ${MEU_ENDERECO.numero}, ${MEU_ENDERECO.bairro} `)
+        $("#cidadeEndereco").html(`${MEU_ENDERECO.cidade}-${MEU_ENDERECO.uf} / ${MEU_ENDERECO.cep} ${MEU_ENDERECO.complemento}`)
+
+
+        cardapio.metodos.finalizarPedido()
+        // https://wa.me/5561986183824?text=Ola
+
+    },
+
+    //método de finalizar pedido, atualiza o link do botao do wpp
+    finalizarPedido: () => {
+
+        if(MEU_CARRINHO.length > 0 && MEU_ENDERECO != null){
+
+            var texto = 'ola, gostaria de fazer um pedido:'
+            texto += '\n*Itens do pedido:*\n\n\${itens}'
+            texto += '\n*Endereço de entrega:*'
+            texto += `\n${MEU_ENDERECO.endereco}, ${MEU_ENDERECO.numero}, ${MEU_ENDERECO.bairro}`
+            texto += `\n${MEU_ENDERECO.cidade}-${MEU_ENDERECO.uf} / ${MEU_ENDERECO.cep} ${MEU_ENDERECO.complemento}`
+            texto += `\n\n*Total (com entrega): R$ ${(VALOR_CARRINHO + VALOR_ENTREGA).toFixed(2).replace('.',',')}*`
+
+            var itens =''
+
+            $.each(MEU_CARRINHO, (i,e) => {
+
+                itens += `*${e.qntd}x* ${e.name} .......R$${e.price.toFixed(2).replace('.',',')} \n`;
+
+                if((i+1) == MEU_CARRINHO.length){
+
+                    texto = texto.replace(/\${itens}/g, itens)
+
+                    //CONVERTE A URL
+                    let encode = encodeURI(texto)
+
+                    let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`
+
+                    $("#btnEtapaResumo").attr('href', URL)
+                }
+            })
+        }
+    },
+
+    //carrega o link do botão reserva
+    carregarBotaoReserva: () => {
+
+        var texto = 'Ola, gostaria de fazer uma *reserva*'
+
+        let encode = encodeURI(texto)
+
+        let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`
+
+        $('#btnReserva').attr('href', URL)
+
+    },
+    //carregar o botao d ligar
+    carregarBotaoLigar: () => {
+
+        $("#btnLigar").attr('href', `tel:${CELULAR_EMPRESA}`)
+
+    },
+
+    //abre o depoimento
+    abrirDepoimento: (depoimento) => {
+
+        $("#depoimento-1").addClass('hidden')
+        $("#depoimento-2").addClass('hidden')
+        $("#depoimento-3").addClass('hidden')
+
+        $("#btnDepoimento-1").removeClass('active')
+        $("#btnDepoimento-2").removeClass('active')
+        $("#btnDepoimento-3").removeClass('active')
+
+        $("#depoimento-" + depoimento).removeClass('hidden')
+        $("#btnDepoimento-" + depoimento).addClass('active')
+
+    }, 
 
     // o tempo é em milisegundos, por isso 3500, mensgens de adicionar ao carrinho
     mensagem: (texto, cor = 'red', tempo= 3500) => {
@@ -423,4 +618,24 @@ itemCarrinho:
                         <span class="btn btn-remove" onClick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fas fa-times"></i></span>
                     </div>
                 </div>`,
+
+itemResumo:
+                `    
+                <div class="col-12 item-carrinho resumo">
+                    <div class="img-produto-resumo">
+                        <img src="\${img}" alt="">
+                    </div>
+
+                    <div class="dados-produto">
+                        <p class="title-produto-resumo">
+                            <b>\${name}</b>
+                        </p>
+                    <p class="price-produto-resumo">
+                        <b>\${preco}</b>
+                    </p>
+                    </div>
+                        <p class="quantidade-produto-resumo">
+                                    x <b>\${qntd}</b>
+                        </p>
+                </div>   `
 }

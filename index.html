@@ -83,7 +83,7 @@
                                 <a href="#" class="btn btn-yellow mt-4 mr-3">
                                     Ver Cardápio
                                 </a>
-                                <a href="#" class="btn btn-white btn-icon-left mt-4">
+                                <a href="#" class="btn btn-white btn-icon-left mt-4" id="btnLigar">
                                     <span class="icon-left">
                                         <i class="fa fa-phone"></i>
                                     </span>
@@ -322,9 +322,9 @@
                             </div>
                         </div>
 
-                        <a href="" class="btn btn-sm btn-white btn-social mr-3 ">1</a>
-                        <a href="" class="btn btn-sm btn-white btn-social mr-3 ">2</a>
-                        <a href="" class="btn btn-sm btn-white btn-social">3</a>
+                        <a id="btnDepoimento-1" class="btn btn-sm btn-white btn-social mr-3 active" onclick="cardapio.metodos.abrirDepoimento(1)">1</a>
+                        <a id="btnDepoimento-2" class="btn btn-sm btn-white btn-social mr-3 " onclick="cardapio.metodos.abrirDepoimento(2)">2</a>
+                        <a id="btnDepoimento-3" class="btn btn-sm btn-white btn-social" onclick="cardapio.metodos.abrirDepoimento(3)">3</a>
 
                     </div>
 
@@ -352,7 +352,7 @@
                                         <br>
                                         Reserve sua data e horário de forma simples e rápida
                                     </p>
-                                    <a href="#" class="btn btn-yellow mt-4">
+                                    <a href="#" class="btn btn-yellow mt-4" id="btnReserva" target="_blank">
                                         Fazer reserva
                                     </a>
                                 </div>
@@ -441,7 +441,7 @@
                         <div class="form-group container-cep">
                             <label for="">CEP</label>
                             <input type="text" id="txtCEP" class="form-control">
-                            <a href="" class="btn btn-yellow btn-sm"><i class="fa fa-search"></i></a>
+                            <a class="btn btn-yellow btn-sm" onclick="cardapio.metodos.buscarCEP()"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
 
@@ -532,24 +532,7 @@
                     <div class="col-12">
                         <div class="row" id="listaItensResumo">
 
-                            <div class="col-12 item-carrinho resumo">
-                                <div class="img-produto-resumo">
-                                    <img src="img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="">
-                                </div>
-
-                                <div class="dados-produto">
-                                    <p class="title-produto-resumo">
-                                        <b>Nome produto</b>
-                                    </p>
-                                    <p class="price-produto-resumo">
-                                        <b>R$ 10,00</b>
-                                    </p>
-                                </div>
-
-                                <p class="quantidade-produto-resumo">
-                                    x <b>3</b>
-                                </p>
-                            </div>
+                        
                         </div>
                     </div>
 
@@ -565,10 +548,10 @@
                         </div>
                         <div class="dados-produto">
                             <p class="texto-endereco">
-                                <b id="resumoEndereco">Rua teste,200, bairro teste</b>
+                                <b id="resumoEndereco"></b>
                             </p>
                             <p class="cidade-endereco" id="cidadeEndereco">
-                                Cidade-SP/ 14711-987
+                               
                             </p>
                         </div>
                     </div>
@@ -598,11 +581,11 @@
                     Continuar
                 </a>
 
-                <a onclick= "cardapio.metodos.carregarEtapa(3)" class="btn btn-yellow float-right hidden" id="btnEtapaEndereco">
+                <a onclick= "cardapio.metodos.resumoPedido()" class="btn btn-yellow float-right hidden" id="btnEtapaEndereco">
                     Revisar pedido
                 </a>
 
-                <a  class="btn btn-yellow float-right hidden" id="btnEtapaResumo">
+                <a href="#" class="btn btn-yellow float-right hidden" id="btnEtapaResumo" target="_blank">
                     Enviar pedido
                 </a>
 
