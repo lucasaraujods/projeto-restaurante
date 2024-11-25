@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>Cardapio Online</title>
     <!-- Utilizando o estilo de css com o bootstrap e os arquivos do fontawasome-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/responsivo.css">
     
 </head>
 <body>
@@ -24,7 +26,7 @@
 
     <header class="cabecalho">
         <div class="container">
-            <nav class="navbar navbar-expand-lg pl-0 pr-0"> <!-- Craindo um navbar/menu expansivo, com classes pre-definidas-->
+            <nav class="navbar navbar-expand-lg pl-0 pr-0 col-one"> <!-- Craindo um navbar/menu expansivo, com classes pre-definidas-->
                 <a href="#" class="navbar-brand">
                     <img src="img/logo.png" alt="imagem da logo" width="160px" class="img-logo">
                 </a>
@@ -71,8 +73,8 @@
         <section class="banner">
             <div class="container">
                 <div class="row">
-                    <!--Colanco a classe com 6 espaços entre os elementos, servindo para dividir os conteudos, com as classes do bootstrap-->
-                    <div class="col-6">
+                    <!--Colanco a classe com os tamaho referentes aos tamhos da tela, para resposividade sendo de largo, médio e pequeno, assim, os largos e médios devem pegar somente 6 colunas e se for pequeno ele pega a linha inteira e quando há somente a col-12 os dispositios móveis vai pegar uma linha inteira-->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 col-one">
                         <!--display flex -->
                         <div class="d-flex text-banner">
                             <h1><b>Escolha sua comida <b class="destaque">favorita</b></b></h1>
@@ -80,7 +82,7 @@
                                 Aproveite o nosso cárdapio! Escolha o que desejar e receba em sua casa de forma rápida e segura.
                             </p>
                             <div>
-                                <a href="#" class="btn btn-yellow mt-4 mr-3">
+                                <a href="#cardapio" class="btn btn-yellow mt-4 mr-3">
                                     Ver Cardápio
                                 </a>
                                 <a href="#" class="btn btn-white btn-icon-left mt-4" id="btnLigar">
@@ -106,7 +108,7 @@
 
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 no-mobile">
                         <div class="card-banner"></div>
                         <div class="d-flex img-banner">
                             <img src="img/burguer.png" alt="hamburguer">
@@ -120,14 +122,14 @@
             <div class="background-servicos"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mb-5">
+                    <div class="col-12 col-one text-center mb-5">
                         <span class="hint-title"><b>Serviços</b></span>
                         <h1 class="title">
                             <b>Como são nossos serviços?</b>
                         </h1>
                     </div>
                     <!--Componetes de imagem sendo col4 no total sendo 12, dividindo o conteudo em 3 partes-->
-                    <div class="col-4 mb-5">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-one mb-5">
                         <div class="card-icon text-center">
                             <img src="img/icone-pedido.svg" alt="img pedido" width="150px">
                         </div>
@@ -139,7 +141,7 @@
                         </div>
                     </div>
 
-                    <div class="col-4 mb-5">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-one mb-5">
                         <div class="card-icon text-center">
                             <img src="img/icone-delivery.svg" alt="img delivery" width="250 px">
                         </div>
@@ -151,7 +153,7 @@
                         </div>
                     </div>
 
-                    <div class="col-4 mb-5">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-one mb-5">
                         <div class="card-icon text-center">
                             <img src="img/icone-qualidade.svg" alt="img qualidade" width="250px">
                         </div>
