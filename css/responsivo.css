@@ -117,4 +117,8 @@
     #itensCardapio .mb-5{
         margin-bottom: 15px!important;
     }
+
+    .depoimentos{
+        padding-bottom: 50px;
+    }
 }
