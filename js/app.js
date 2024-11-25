@@ -578,7 +578,7 @@ cardapio.metodos = {
 cardapio.templates = {
 
     item: `                     
-        <div class="col-3 mb-5">
+        <div class="col-12  col-lg-3 col-md-3 col-sm-6 mb-5">
             <div class="card card-item" id="\${id}">
 
                 <div class="img-produto">
