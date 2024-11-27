@@ -145,7 +145,7 @@ a.navbar-brand{
     height: 450px;
     width: 450px;
     border-radius: 170px;
-    background-color: #f4c949;
+    background-color:  #f4a64900;
     position: absolute;
     right: 0;
     top: -80px;
@@ -153,9 +153,12 @@ a.navbar-brand{
 
 .img-banner img{
     position: absolute;
-    width: 570px;
-    top: 30px;
-    right: 15px;
+    width: 574px;
+    top: -126px;
+    right: -25px;
+}
+.img-banner-reserva{
+    
 }
 
 .servicos{
