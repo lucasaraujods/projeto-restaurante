@@ -5,28 +5,28 @@ var MENU = {
             "img": "./img/cardapio/churrasco/joes-kc-ribs-brisket-and-burnt-ends.6710e994980e485e6441b794717ad6fb.jpg",
             "name": "Joe's KC BBQ",
             "dsc": "Joe's KC Ribs, Brisket & Burnt Ends",
-            "price": 110.99
+            "price": 20.50
         },
         {
             "id": "005-kings-carolina-oink-sampler",
             "img": "./img/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
             "name": "Kings BBQ",
             "dsc": "Carolina BBQ Oink Sampler",
-            "price": 89
+            "price": 50
         },
         {
             "id": "texas-monthlys-1-bbq-brisket",
             "img": "./img/cardapio/churrasco/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.jpg",
             "name": "Snow's BBQ",
             "dsc": "Texas Monthly's #1 BBQ Brisket",
-            "price": 199
+            "price": 40
         },
         {
             "id": "whole-brisket-texas-bbq-sauce",
             "img": "./img/cardapio/churrasco/whole-brisket-texas-barbecue-bbq-sauce.e07ee4818b20ed43d217bf67fedd41ce.jpg",
             "name": "Franklin Barbecue",
             "dsc": "Whole Brisket + Texas Barbecue BBQ Sauce",
-            "price": 249
+            "price": 30
         },
         {
             "id": "whole-texas-smoked-brisket",
@@ -91,35 +91,35 @@ var MENU = {
             "img": "./img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-15.jpg",
             "name": "Gramercy Tavern",
             "dsc": "The Gramercy Tavern Burger - 4 Pack",
-            "price": 99
+            "price": 25
         },
         {
             "id": "shake-shack-shackburger-8-pack",
             "img": "./img/cardapio/burguers/shake-shack-shackburger-8-pack.973a5e26836ea86d7e86a327becea2b0.jpg",
             "name": "Shake Shack",
             "dsc": "Shake Shack ShackBurger® - 8 Pack",
-            "price": 49
+            "price": 35
         },
         {
             "id": "gotts-cheeseburger-kit-for-4",
             "img": "./img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg",
             "name": "Gott's Roadside",
             "dsc": "Gott's Complete Cheeseburger Kit for 4",
-            "price": 99
+            "price": 30
         },
         {
             "id": "le-big-matt-kit-for-6",
             "img": "./img/cardapio/burguers/le-big-matt-kit-for-6.1ddae6e382bb3218eeb0fd5247de115a.jpg",
             "name": "Emmy Squared",
             "dsc": "Le Big Matt Burger Kit for 6",
-            "price": 99
+            "price": 45
         },
         {
             "id": "shake-shack-shackburger-16-pack",
             "img": "./img/cardapio/burguers/shake-shack-shackburger-16-pack.316f8b09144db65931ea29e34869287a.jpg",
             "name": "Shake Shack",
             "dsc": "Shake Shack Shackburger® - 16 Pack",
-            "price": 89
+            "price": 37
         },
         {
             "id": "21-usda-prime-burgers-pack-of-18-8oz-each",

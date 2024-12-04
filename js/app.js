@@ -1,47 +1,45 @@
-//importanto o jquery
-//a partir do documento ser totalmente lido ele vai executar uma função
+
+//a partir do documento HTML ser totalmente lido ele vai executar uma função
 $(document).ready(function () {
     cardapio.eventos.init()
 })
 
-//criando um váriavel sendo orinetado ao objeto, para ficar mais fácil de se situar
+//criando um váriavel sendo orinetado ao objeto, para ficar mais fácil de se situar com os métodos juntos
 var cardapio = {}
 
-var MEU_CARRINHO = []
-var MEU_ENDERECO= null
+var MEU_CARRINHO = [] //array de objetos
+var MEU_ENDERECO= null // é igual a null para saber somente quando o cliente informar o endereço
 
-var VALOR_CARRINHO=0
-var VALOR_ENTREGA=5
+var VALOR_CARRINHO=0 
+var VALOR_ENTREGA=5 //frente definido como 5 reais
 
-var CELULAR_EMPRESA = '5561986183824'
+var CELULAR_EMPRESA = '5561986183824' // celular de ref ao pedido
 
 cardapio.eventos = {
     //criando uma função para quando inicializar e chamar os itens do menu
     init: () => {
-        cardapio.metodos.obterItensCardapio()
-        cardapio.metodos.carregarBotaoLigar()
-        cardapio.metodos.carregarBotaoReserva()
+        cardapio.metodos.obterItensCardapio() //carrega informações como nomes, preços e descrições.
+        cardapio.metodos.carregarBotaoLigar() //carregar o botão de ligar, assim, ao aperter direciona para a ligação ao número
+        cardapio.metodos.carregarBotaoReserva() //carrega o botão de reservar, assim, direciona para o wpp da loja
     }
 
 }
 
 cardapio.metodos = {
-    //para listar os itens, obtendo a lista de itens do cardapio 
+    //para listar os itens, obtendo a lista de itens pelo o parametro relacionado, assim, obtem os itens cardapio de acordo com o parametro dado do array de menu e o vermais é o botão que se inicializa como falso, não mostrando o restante do cardapio
     obterItensCardapio: (categoria = 'burgers', vermais=false) => {
 
         let filtro = MENU[categoria]
         console.log(filtro)
 
-         //limpando a tela para depois dar o append
+         //Manipulação com jQuery, para fazer o getelementbyID por jquery é por $("#")
         if(!vermais){
-            $("#itensCardapio").html('')
-            $("#btnVerMais").removeClass("hidden")
+            $("#itensCardapio").html('') //aqui limpamos o conteudo do html 
+            $("#btnVerMais").removeClass("hidden") //aqui remove a classe escondida, assim, mostrando os itens ao apertar o vermais = true
         }
 
-       
-       
 
-        //*criando um for each em jquery para obter os 12 produtos e cada vez que e a repetição ele cria um template
+        //*criando um for each com jquery para obter os 12 produtos e cada vez que e a repetição ele cria um template
         //o e é o elemento assim segue os 12 itens do cardápio do array
         $.each(filtro, (i,e) => {
 
@@ -72,7 +70,7 @@ cardapio.metodos = {
 
     verMais: () => {
 
-        var ativo = $(".container-menu a.active").attr('id').split('menu-')[1] //menu burgers, assim o split quebra o array e pegamso o nome no array 1
+        var ativo = $(".container-menu a.active").attr('id').split('menu-')[1] //menu burgers, assim o split quebra o array e pega o nome no array 1
         cardapio.metodos.obterItensCardapio(ativo,true)
 
         $("#btnVerMais").addClass('hidden')
