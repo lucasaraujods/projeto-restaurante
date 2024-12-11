@@ -126,7 +126,7 @@ var MENU = {
             "img": "./img/cardapio/burguers/usda-prime-burgers-pack-of-18-8oz-each.274c67f15aa1c0b210dbf51801706670.jpg",
             "name": "Peter Luger Steak House",
             "dsc": "USDA Prime Burgers - Pack of 18 (8oz each)",
-            "price": 175.95
+            "price": 24
         },
         {
             "id": "double-stack-burger-kit-for-4",
@@ -140,35 +140,35 @@ var MENU = {
             "img": "./img/cardapio/burguers/the-burger-bash-package.bd9d12d031865940bbe5faf15f1a62f8.jpg",
             "name": "Pat LaFrieda Meats",
             "dsc": "Goldbelly \"Burger Bash\" Pack",
-            "price": 109
+            "price": 50
         },
         {
             "id": "burger-au-poivre-kit-4-pack",
             "img": "./img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg",
             "name": "Raoul's",
             "dsc": "Burger Au Poivre Kit - 4 Pack",
-            "price": 99
+            "price": 45
         },
         {
             "id": "goldbelly-burger-blend-4-lbs",
             "img": "./img/cardapio/burguers/goldbelly-burger-blend-1-lb.13a21b66edf7173a59c75c3a6d2f981b.jpg",
             "name": "Flannery Beef",
             "dsc": "Goldbelly Burger Blend - 4 lbs.",
-            "price": 79
+            "price": 38
         },
         {
             "id": "gotts-complete-cheeseburger-kit-for-8",
             "img": "./img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-8.092aa049d00286fa1733d720decc782e.jpg",
             "name": "Gott's Roadside",
             "dsc": "Gott's Complete Cheeseburger Kit for 8",
-            "price": 149
+            "price": 95
         },
         {
             "id": "gramercy-tavern-burger-kielbasa-combo",
             "img": "./img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-47.jpg",
             "name": "Gramercy Tavern",
             "dsc": "Gramercy Tavern Burger + Kielbasa Combo",
-            "price": 149
+            "price": 44
         }
     ],
     "sobremesas": [
@@ -177,84 +177,84 @@ var MENU = {
             "img": "./img/cardapio/sobremesas/german-chocolate-killer-brownie-tin-pack.5ebc34160f28767a9d94c4da2e04c4b9.jpg",
             "name": "Killer Brownie®",
             "dsc": "German Chocolate Killer Brownie®",
-            "price": 39.99
+            "price": 24
         },
         {
             "id": "jacques-world-famous-chocolate-chip-cookies",
             "img": "./img/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-6-pack.2217a14c443602493bba88aa9335319a.jpg",
             "name": "Jacques Torres Chocolate",
             "dsc": "Jacques' World Famous Chocolate Chip Cookies - 6 Pack",
-            "price": 39.95
+            "price": 34
         },
         {
             "id": "luigis-original-cannoli-pie",
             "img": "./img/cardapio/sobremesas/original-cannoli-pie.4cb5b9ba82f57b69b90765fd9f07aa1a.jpg",
             "name": "The Cannoli Pie Company",
             "dsc": "Original Cannoli Pie",
-            "price": 69
+            "price": 20
         },
         {
             "id": "sea-salted-caramel-swirl-cheesecake",
             "img": "./img/cardapio/sobremesas/sea-salted-caramel-swirl-cheesecake.e2825335433fb7a272a5d77649a6849e.jpg",
             "name": "Cotton Blues Cheesecake Company",
             "dsc": "Sea-Salted Caramel Swirl Cheesecake",
-            "price": 65
+            "price": 15
         },
         {
             "id": "brooklyn-blackout-cookie-brownie-combo-pack-2-tins",
             "img": "./img/cardapio/sobremesas/brooklyn-blackout-cookie-brownie-combo-pack-2-tins.d8805325baf6b23b4f01d119dc4531a7.jpg",
             "name": "Brooklyn Blackout Company",
             "dsc": "Brooklyn Blackout Cookie + Brownie Combo Pack - 2 Tins",
-            "price": 89
+            "price": 45
         },
         {
             "id": "best-seller-cupcake-dozen",
             "img": "./img/cardapio/sobremesas/best-seller-cupcake-dozen.f93b21993f6a2da11c975d45b9b0d08f.jpg",
             "name": "Crave Cupcakes",
             "dsc": "Best Seller Cupcake Dozen",
-            "price": 89
+            "price": 75
         },
         {
             "id": "choose-your-own-ice-cream-donuts-6-pack",
             "img": "./img/cardapio/sobremesas/choose-your-own-ice-cream-donuts-6-pack.24d0b44765a7c54237fcd7ea9d9d8093.jpg",
             "name": "Elegant Desserts",
             "dsc": "Choose Your Own Ice Cream Donuts - 6 Pack",
-            "price": 69
+            "price": 50
         },
         {
             "id": "17481-jewish-dessert-3-pack",
             "img": "./img/cardapio/sobremesas/jewish-classics-dessert-pack.7d4b76630f2fe75dcb7bbcf2501b7390.jpg",
             "name": "Ess-a-Bagel",
             "dsc": "Jewish Classics Dessert Pack",
-            "price": 89.95
+            "price": 45
         },
         {
             "id": "dessert-bar-care-package",
             "img": "./img/cardapio/sobremesas/dessert-bar-care-package.324aa28fe98c9dc67b75aac43376902e.jpg",
             "name": "Bread and Roses Bakery",
             "dsc": "Dessert Bar Care Package",
-            "price": 65
+            "price": 75
         },
         {
             "id": "donut-cookies-12-pack",
             "img": "./img/cardapio/sobremesas/donut-cookies-12-pack.46f42c61c4a79fd2051a99b2f23e890e.jpg",
             "name": "Stan's Donuts",
             "dsc": "Donut Cookies - 12 Pack",
-            "price": 49
+            "price": 10
         },
         {
             "id": "gulab-jamun-ice-cream-cakes-2-pack",
             "img": "./img/cardapio/sobremesas/gulab-jamun-ice-cream-cakes-2-pack.c45b4d0750ad22d741f84dc1f26d20e7.jpg",
             "name": "Malai Ice Cream",
             "dsc": "Gulab Jamun Ice Cream Cakes - 2 Pack",
-            "price": 79
+            "price": 25
         },
         {
             "id": "jacques-world-famous-chocolate-chip-cookies-12-pack",
             "img": "./img/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-12-pack.3b373bdd67cd25084182c21499f675d1.jpg",
             "name": "Jacques Torres Chocolate",
             "dsc": "Jacques' World Famous Chocolate Chip Cookies - 12 Pack",
-            "price": 69.95
+            "price": 60
         }
     ],
     "bebidas": [
@@ -263,70 +263,70 @@ var MENU = {
             "img": "./img/cardapio/bebidas/hong-kong-boba-tea-kit-for-6.63841de36d8e5edfafa13023fc303285.jpg",
             "name": "New Territories",
             "dsc": "Hong Kong Boba Tea Kit for 6",
-            "price": 59
+            "price": 17
         },
         {
             "id": "guys-caliente-margaritas-for-12",
             "img": "./img/cardapio/bebidas/guys-caliente-margaritas-for-12.ca8c6bc06b8f1039549385ffcebc749d.jpg",
             "name": "Guy Fieri",
             "dsc": "Guy's Caliente Margaritas for 12",
-            "price": 69
+            "price": 19
         },
         {
             "id": "woodford-reserve-mint-julep-syrup",
             "img": "./img/cardapio/bebidas/woodford-reserve-mint-julep-syrup.ef523ac7cbae5f4aba6b058207f490d2.jpg",
             "name": "Woodford Reserve",
             "dsc": "Woodford Reserve Mint Julep Syrup",
-            "price": 39
+            "price": 40
         },
         {
             "id": "new-orleans-hurricane-mix",
             "img": "./img/cardapio/bebidas/new-orleans-hurricane-mix.4613584fc65cb0787024dd24d2a8f4b3.jpg",
             "name": "Franco's Hurricane Mix",
             "dsc": "New Orleans Hurricane Mix",
-            "price": 39
+            "price": 31
         },
         {
             "id": "margarita-mix",
             "img": "./img/cardapio/bebidas/margarita-mix.bd48a000d589d3147b14790af3c33fcd.jpg",
             "name": "Johnny Sanchez",
             "dsc": "Margarita Mix",
-            "price": 59
+            "price": 19
         },
         {
             "id": "woodford-reserve-mint-julep-syrup-2-pack",
             "img": "./img/cardapio/bebidas/woodford-reserve-mint-julep-syrup-2-pack.0ac76063f151988113cbaabd0eaa829f.jpg",
             "name": "Woodford Reserve",
             "dsc": "Woodford Reserve Mint Julep Syrup - 2 Pack",
-            "price": 59
+            "price": 28
         },
         {
             "id": "unicorn-parade-milkshake-kit-for-8",
             "img": "./img/cardapio/bebidas/unicorn-parade-milkshake-kit-for-2.9052d04c1cf25b29442048bd3e535f21.jpg",
             "name": "New Territories",
             "dsc": "Unicorn Parade Milkshake Kit for 8",
-            "price": 109
+            "price": 45
         },
         {
             "id": "chickpea-chiller-kit-for-6",
             "img": "./img/cardapio/bebidas/chickpea-chiller-kit-for-6.4310765c71ba524b5462ea9330d32446.jpg",
             "name": "The Hummus & Pita Co.",
             "dsc": "Chickpea Chiller Kit for 6",
-            "price": 89
+            "price": 12
         },
         {
             "id": "15194-old-honey-barn-mint-julep-mixer-200ml",
             "img": "./img/cardapio/bebidas/old-honey-barn-mint-julep-mixer-200ml.e0b131d6d9b69963706b43fd4334ab74.jpg",
             "name": "Old Honey Barn Mint Julep",
             "dsc": "Old Honey Barn Mint Julep Mixer - 200ml Flask",
-            "price": 25
+            "price": 19
         },
         {
             "id": "kentucky-derby-mint-julep-gift-set",
             "img": "./img/cardapio/bebidas/kentucky-derby-mint-julep-gift-set.79720eda4e9c8e3fcf9ecb5c79827f2c.jpg",
             "name": "Woodford Reserve",
             "dsc": "Kentucky Derby Mint Julep Gift Set",
-            "price": 59.95
+            "price": 28
         },
         {
             "id": "002-charleston-bloody-mary-mix-weekender-bold-and-spicy",
