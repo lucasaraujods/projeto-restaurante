@@ -14,4 +14,4 @@ Este é um projeto de **cardápio online** desenvolvido para facilitar a experi�
 - Adicionar e remover itens do carrinho de compras.
 - Cálculo automático do valor total do pedido.
 - Botão para finalizar o pedido, gerando uma mensagem no formato correto para envio pelo WhatsApp.
-- Design responsivo para uso em smartphones, tablets e desktops.
+- Design responsivo para qualuqer dispositivo.
